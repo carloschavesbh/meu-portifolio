@@ -1,0 +1,288 @@
+:root {
+  --primary-color: #4caf50; /* Verde médio, mais leve */
+  --secondary-color: #ffca28; /* Amarelo Atlético-MG */
+  --text-dark: #1a1a1a; /* Preto suave */
+  --text-light: #fff; /* Branco */
+  --bg-light: #f5f5f5; /* Cinza claro */
+  --bg-dark: #4a4a4a; /* Cinza médio */
+  --neutral-brown: #5d4037; /* Marrom */
+  --transition-time: 0.3s;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.8rem;
+  font-weight: 400;
+  line-height: 1.4;
+  color: var(--text-dark);
+  background-color: var(--bg-light);
+}
+
+#navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2rem;
+  background-color: var(--text-light);
+  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.1);
+  z-index: 10;
+}
+
+.nav-brand {
+  width:80px; /* Mantém o tamanho, mas pode ajustar pra 90px se precisar */
+  height: auto;
+  margin: 0; /* Garante sem margens */
+  padding: 0; /* Remove qualquer padding interno */
+}
+
+.nav-list {
+  display: flex;
+  list-style: none;
+}
+
+.nav-list li a {
+  display: block;
+  font-size: 2.2rem;
+  padding: 1rem;
+  color: var(--text-dark);
+  text-decoration: none;
+  position: relative;
+}
+
+.nav-list li a:hover {
+  color: var(--primary-color);
+  border-bottom: 2px solid var(--secondary-color);
+  background-color: transparent;
+  transition: all var(--transition-time) ease-in-out;
+}
+
+#welcome-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, var(--bg-light) 0%, var(--primary-color) 70%);
+  padding: 2rem;
+}
+
+#welcome-section h1 {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 700;
+  font-size: 4rem;
+  text-align: center;
+  color: var(--text-dark);
+}
+
+#welcome-section p {
+  font-size: 2rem;
+  font-style: italic;
+  color: var(--text-light);
+}
+
+.projects-section {
+  text-align: center;
+  padding: 6rem 2rem;
+  background-color: var(--bg-dark);
+}
+
+.projects-section-header {
+  max-width: 640px;
+  margin: 0 auto 4rem auto;
+  border-bottom: 0.2rem solid var(--text-light);
+  font-size: 3rem;
+  color: var(--text-light);
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 3rem;
+  max-width: 1280px;
+  margin: 0 auto 4rem auto;
+}
+
+.project-tile {
+  background-color: var(--text-light);
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  overflow: hidden;
+  text-decoration: none;
+  color: var(--text-dark);
+}
+
+.project-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  flex-grow: 1;
+  transition: all var(--transition-time) ease-in-out;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Mantém a sombra */
+}
+
+
+
+.project-title {
+  font-size: 1.5rem;
+  padding: 1rem 0.3rem;
+  color: var(--text-dark);
+  background-color: var(--text-light);
+  text-align: center;
+}
+
+.project-desc {
+  font-size: 1.2rem;
+  color: var(--text-dark);
+  background-color: var(--text-light);
+  padding: 0.5rem;
+  opacity: 0;
+  transition: opacity var(--transition-time) ease-in-out;
+}
+
+.project-tile:hover .project-desc {
+  opacity: 1;
+}
+
+.project-title::before,
+.project-title::after {
+  content: "";
+  opacity: 0;
+  transition: opacity var(--transition-time) ease-in-out;
+}
+
+.project-title::before { content: "<"; margin-right: 0.2rem; position: absolute; left: -10px; }
+.project-title::after { content: "/>"; margin-left: 0.2rem; position: absolute; right: -10px; }
+
+.project-title:hover::before,
+.project-title:hover::after {
+  opacity: 1;
+}
+
+.profile-section {
+  text-align: center;
+  padding: 4rem 2rem;
+  background-color: var(--bg-light);
+}
+
+.profile-section img {
+  max-width: 300px;
+  height: auto;
+  border-radius: 50%;
+  margin-bottom: 2rem;
+}
+
+.profile-section h2 {
+  font-size: 3rem;
+  margin-bottom: 2rem;
+}
+
+.profile-section p {
+  max-width: 600px;
+  margin: 0 auto;
+  font-size: 1.8rem;
+}
+
+.contact-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  min-height: 60vh;
+  padding: 4rem 2rem;
+  background-color: var(--neutral-brown);
+}
+
+.contact-section-header h2 {
+  font-size: 3rem;
+  color: var(--text-light);
+}
+
+.contact-section-header p {
+  font-style: italic;
+  color: var(--text-light);
+}
+
+.contact-links {
+  display: flex;
+  justify-content: center;
+  max-width: 980px;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+}
+
+.btn {
+  display: inline-block;
+  padding: 1rem 2rem;
+  border-radius: 20px; /* Botões arredondados */
+  background-color: var(--primary-color);
+  color: var(--text-light);
+  text-decoration: none;
+  font-size: 1.8rem;
+  transition: background-color var(--transition-time) ease-in-out;
+}
+
+.btn:hover { background-color: var(--secondary-color); }
+
+.btn-show-all i {
+  margin-left: 1rem;
+  transition: transform var(--transition-time) ease-in-out;
+}
+
+.btn-show-all:hover i { transform: translateX(2px); }
+
+.contact-details {
+  margin: 0 1rem 1rem 0;
+  border-radius: 20px; /* Botões de contato arredondados */
+  text-shadow: 2px 2px 1px #1f1f1f;
+  transition: transform var(--transition-time) ease-out;
+}
+
+.contact-details:hover {
+  transform: translateY(8px);
+}
+
+.footer-custom {
+  text-align: center;
+  padding: 2rem;
+  background-color: var(--bg-light);
+  border-top: 0.2rem solid var(--primary-color);
+}
+
+@media (max-width: 768px) {
+  #navbar { padding: 0 1rem; }
+  .nav-brand { font-size: 2rem; }
+  .nav-list li a { font-size: 1.8rem; padding: 0.8rem; }
+  #welcome-section { min-height: 100vh; padding: 1rem; }
+  #welcome-section h1 { font-size: 3rem; }
+  #welcome-section p { font-size: 1.5rem; }
+  .projects-section { padding: 4rem 1rem; }
+  .projects-section-header { font-size: 2rem; }
+  .project-title { font-size: 1.2rem; }
+  .project-desc { font-size: 1rem; }
+  .profile-section { padding: 3rem 1rem; }
+  .profile-section img { max-width: 150px; }
+  .profile-section h2 { font-size: 2.5rem; }
+  .profile-section p { font-size: 1.5rem; }
+  .contact-section { min-height: 50vh; padding: 3rem 1rem; }
+  .contact-section-header h2 { font-size: 2.5rem; }
+  .contact-section-header p { font-size: 1.5rem; }
+  .btn, .contact-details { font-size: 1.5rem; padding: 0.8rem 1.5rem; }
+  .footer-custom { padding: 1rem; font-size: 1.2rem; }
+}
